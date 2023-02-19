@@ -1,0 +1,41 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "license": "ISC",
+  "private": true,
+  "config": {
+    "host": "hosting.domain.tld",
+    "domain": "app.hosting.domain.tld"
+  },
+  "author": {
+    "name": "Nabil Redmann",
+    "email": "repo@bananaacid.de",
+    "url": "https://codesandbox.io/p/sandbox/template-for-nuxt3-vue3-typescript-jsx-pug-less-sass-qttdx0"
+  },
+  "scripts": {
+    "build": "cd app && npm install && npm run updates:check && npm run build",
+    "start": "npm run dev",
+    "run": "node ./app/.output/server/index.mjs",
+    "dev": "cd app && npm run dev",
+    "preinstall": "cd app && npm install",
+    "postinstall": "cd app && npm run postinstall",
+    "updates:check": "cd app && ./node_modules/.bin/npm-check-updates",
+    "updates:do": "cd app && ./node_modules/.bin/npm-check-updates -u",
+    "-": "",
+    "local:createSshKey": "ssh-keygen -t rsa",
+    "dokku:addLocalUserSsh": "cat ~/.ssh/id_rsa.pub | ssh root@$npm_package_config_host \"cat - >> /root/.ssh/authorized_keys\"  &&  cat ~/.ssh/id_rsa.pub | ssh root@$npm_package_config_host \"sudo sshcommand acl-add dokku $USER\"",
+    "dokku:link": "git remote add dokku dokku@$npm_package_config_host:$npm_package_name",
+    "--": "",
+    "dokku:create-app": "ssh root@$npm_package_config_host \"dokku apps:create $npm_package_name && dokku letsencrypt:enable $npm_package_name && dokku redis:create $npm_package_name-session-db && dokku redis:link $npm_package_name-session-db $npm_package_name && dokku domains:set $npm_package_name $npm_package_config_domain \"",
+    "dokku:create-bindings": "ssh root@$npm_package_config_host \"dokku storage:mount $npm_package_name $npm_package_name-config:/app/config && dokku storage:mount $npm_package_name $npm_package_name-data:/app/data\"",
+    "---": "",
+    "dokku:volumes-ls": "ssh root@$npm_package_config_host \"dokku storage:list $npm_package_name\"",
+    "----": "",
+    "dokku:push": "git push dokku master:master",
+    "-----": "",
+    "dokku:ssh-to-server": "ssh root@$npm_package_config_host",
+    "------": "",
+    "create:tar": "rm ./app/public/workspace.tar.gz ; tar --exclude=\"node_modules\" --exclude=\".nuxt\" --exclude=\".git\" -czf /tmp/workspace.tar.gz . && mv /tmp/workspace.tar.gz ./app/public/. && ls -lh ./app/public/workspace.tar.gz",
+    "-------": ""
+  }
+}

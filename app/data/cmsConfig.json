@@ -1,0 +1,19 @@
+{
+  "UserDatabase": [
+    {
+      "id": 1,
+      "username": "john",
+      "passwordHash": "",
+      "password": "1111",
+      "data": { "email": "john.doe@test.com", "isAdmin": true }
+    },
+    {
+      "id": 1,
+      "username": "jane",
+      "passwordHash": "",
+      "password": "1111",
+      "data": { "email": "jane.doe@test.com", "isAdmin": false }
+    }
+  ],
+  "cookiePassword": "87gzutvbiuh76ftvuzbi7g867gzbiunj"
+}
