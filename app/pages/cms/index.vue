@@ -89,9 +89,9 @@ export default defineComponent({
 
   methods: {
     async doLogout() {
-      let { data }: { data: any } = await useFetch("/cms/api/logout");
+      let data: any = await $fetch("/cms/api/auth/logout");
 
-      if (data.success) {
+      if (data?.success) {
         navigateTo("/");
       }
     },

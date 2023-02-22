@@ -36,10 +36,10 @@ let { id, data, update, clear } = await useSession(
 let StoreMemory:{[id:string]:{created:number, alive?:number, data:{[key:string]:any}}} = {}; 
 // StoreMemory clean up (invalidate logins after cookie maxage)
 setInterval( () => {
-    if (!h3SessionCookieConfig.maxAge) return;
+    let ttl = h3SessionCookieConfig?.maxAge || 60 * 5;
     
     let now = Date.now();
-    let max = h3SessionCookieConfig.maxAge * 1000;
+    let max = ttl * 1000;
     
     for (let key in StoreMemory) {
         let alive = StoreMemory[key].alive || StoreMemory[key].created;
