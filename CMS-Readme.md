@@ -2,7 +2,7 @@
 
 License: ISC Nabil Redmann 2023
 
-For now, uses the h3-session support, and usus its own memoryStore.
+For now, uses the h3-session support, and usus its own memoryStore with timeout.
 
 Planned: 
 1. use encrpted passwords (not plaintext)
