@@ -1,5 +1,9 @@
 # dukku ready template 2 for Nuxt3 + ContentCMS+auth + Vue3 + Typescript + JSX + Pug + Less( + Sass)
 
+## CMS Functions
+
+[Explained in CMS-Readme.md](CMS-Readme.md)
+
 ## add SASS/SCSS
 Open the terminal and
 - `cd app`
